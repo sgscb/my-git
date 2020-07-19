@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<style type="text/css">
+				*{box-sizing: border-box;margin: 0;padding: 0;}
+				#content{
+					max-width: 1000px;
+					margin: 0 auto;
+					display: flex;
+					flex-wrap: wrap;
+					border: 2px solid #000000;
+				}
+				ul{list-style: none;}
+				ul>li{border: 3px solid purple;}
+				#content img{
+					float: left;
+					padding: 5px;
+				}
+				@media (min-width:576px) {
+					#left,#center,#right{flex: 0 0 100%;}
+					#center img{width: 50%;}
+				}
+				@media (min-width:768px) {
+					#left{flex: 0 0 25%;}
+					#center{flex: 0 0 75%;}
+					#right{display: none;}
+					#center img{width: 25%;}
+				}
+				@media (min-width:1200px) {
+					#left{flex: 0 0 20%;}
+					#center{flex: 0 0 60%;}
+					#right{flex: 0 0 20%;display: block;}
+				}
+				#L1{height: 60px;background-color: #00AAFF;}
+			</style>
+	</head>
+	<body>
+		<div id="content">
+		 <div id="left">
+			 <ul>
+					<li>豆蔻年华</li>
+					<li>豆蔻年华</li>
+					<li>豆蔻年华</li>
+					<li>豆蔻年华</li>
+			 </ul>
+			</div>
+			<div id="center">
+				<img src="img/2.jpg" >
+				<img src="img/2.jpg" >
+				<img src="img/2.jpg" >
+				<img src="img/2.jpg" >
+				<div id="L1">
+					spaLorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cumque corrupti rem ea laborum voluptatum iusto molestias facere velit quidem saepe expedita nostrum voluptatibus error optio eaque ad deserunt blanditiis.
+				</div>
+				
+			</div>
+			<div id="right">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorum mollitia doloremque quidem deleniti qui ab vel autem repellat saepe veritatis impedit magni nam suscipit eius accusamus rem nemo eos! ipsum dolor sit amet, consectetur adipisicing elit. Tempora itaque vitae blanditiis voluptatem ratione voluptates eum quia consectetur ex pariatur soluta sint quidem in eos saepe ea eaque autem fugit. ipsum dolor sit amet, consectetur adipisicing elit. Sed error quia dicta rem id explicabo alias accusantium nihil sint distinctio enim provident quae nostrum consequatur quod facere totam dolorem ducimus!
+			</div>
+		</div>
+	</body>
+</html>

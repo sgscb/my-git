@@ -1,0 +1,93 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style type="text/css">
+			#content{
+				width: 100%;
+				/* margin: 0 auto; */
+				background-color: #222222;
+				float: left;
+				line-height: 42px;
+			}
+			#content ul{list-style:none;}
+			#content a,#bg a{
+				color:#bebebe;
+				padding: 15px 11px;
+				text-decoration: none;
+				font-size: 14px;
+				}
+			#content a:hover,#bg a:hover{color: white;}
+			#content li{float: left;}
+			#bg{
+				height: 498px;width: 100%;
+				background-image: linear-gradient(to right,#361841,#57284d);
+				clear: both;
+				}
+				#bg div{padding: 90px 0px 110px;}
+				#bg h3{font-size: 90px;font-weight: bolder;}
+				#bg h2{font-weight: 200;}
+				@media (min-width:576px) {
+					.b_none{display: none;}
+					.b_img>img{width: 100%;}
+					/* .b_img>img{flex-basis: 100%;} */
+					/* .b_img>img{flex-flow:0 0 100%;} */
+				}
+				@media (min-width:768px) {
+					.b_none{display: block;}
+					.b_img>img{width: 50%;}
+					/* .b_img>img{flex-basis: 50%;} */
+					/* .b_img>img{flex-flow:0 0 50%;} */
+				@media (min-width:922px) {
+					.b_block{display: block;}
+					.b_img>img{width: 25%;}
+					/* .b_img>img{flex-basis: 25%;} */
+					/* .b_img>img{flex-flow:0 0 25%;} */
+				}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div class="container px-0 clearfix">
+				<div class="float-left px-3 d-md-none d-lg-block"><a href="#">Bootstrap中文网</a></div>
+				<ul class="b_none text-white float-left pl-0 mb-0">
+					<li><a href="#">Bootstrap3中文文档</a></li>
+					<li><a href="#">Bootstrap4中文文档</a></li>
+					<li><a href="#">Sass 教程</a></li>
+					<li><a href="#">Less 教程</a></li>
+					<li><a href="#">jQuery API</a></li>
+					<li><a href="#">网站实例</a></li>
+				</ul>
+				<ul class="float-right mb-0 d-md-none d-lg-block">
+					<li><a href="#"><a href="">关于</a></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- center -->
+		<div  id="bg">
+			 	<div class="container">
+				<div class="text-center text-white">
+					<h3 class="h1">Bootstrap</h3>
+					<h2 class="">简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</h2>
+					<p><a class="btn btn-primary" href="#">Bootstrap2中文文档(v3.7.7)</a></p>
+					<ul class="list-unstyled">
+						<li<a href="#">Bootstrap2中文文档(v2.3.2)</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container p-0">
+			<div class="b_img d-flex flex-wrap">
+				<img src="img/boot-1.png" >
+				<img src="img/boot-2.png" >
+				<img src="img/boot-3.png" >
+				<img src="img/boot-4.png" >
+			</div>
+		</div>
+	</body>
+</html>

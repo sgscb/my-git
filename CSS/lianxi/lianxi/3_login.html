@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#content{
+				width: 1000px;
+				height: 560px;
+				background: url(img/bg.png) no-repeat;
+				background-size: contain;
+				color: #fff;
+				margin: 0 auto;
+				}
+			#content>div{
+				width: 273px;height: 297px;
+				padding: 5px;
+				margin: 56px 585px;
+				background-color: rgba(0,0,0,.2);
+			}
+			#content table{width: 100%;}
+			#uname,#upwd {
+				width: 100%;
+				font-size: 12px;
+				padding: 8px 0;
+				padding-left: 10px;
+				margin: 10px 0;
+				border: 0px;
+				box-sizing: border-box;
+				background: #fff url(img/yhm.png ) no-repeat;
+				background-position: 97%;
+				/* outline: 2px solid #555500; */
+				}
+			#uname:focus,#upwd:focus {
+			  color: #495057;
+			  background-color: #fff;
+			  border-color: #80bdff;
+			  outline: 0;
+			  box-shadow: 0 0 0 0.2rem rgba(255, 170, 0, 127);
+			}
+			/* #uname,#upwd:active{border:6px solid #00aa00;} */
+			.tx_style{color: white;
+					font-size: 12px;
+					text-decoration: none;
+					cursor: pointer;
+					}
+			.tx_size{
+				font-weight: bold;
+			}
+			#content button{
+				width: 100%;
+				line-height: 35px;
+				/* background-color: #0aa1ed; */
+				/* outline: 0; */
+				border: none;
+				color: white;
+				text-shadow: 0 0 10px #afb;
+				margin-top: 20px;
+				border-radius: 2px;
+				background-image: repeating-linear-gradient(to right,#07f,#08f,#0af,#08f,#07f)
+				/* background-image: repeating-linear-gradient(to right,#0af 10px,#000,#0af 21px); */
+				/* background-image:radial-gradient(#0bf,#09f); */
+			}
+			#content button:hover{
+				box-shadow: 0px 0px 36px 1px rgba(200,240,230,.5);
+				cursor: pointer;
+				color: #00ffff;
+			}
+			.text_red{
+				font-size: 12px;
+				color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			function b_uname(){
+				var $uname=uname.value
+				if($uname){
+					uname_msg.innerHTML="√"
+				}else{
+					uname_msg.innerHTML="用户名不能为空!"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<table></table>
+			<div>
+				<table>
+					<tr>
+						<td class="tx_size">登录学子商城</td>
+						<td class="tx_style" align="right">新用户注册</td>
+					</tr>
+					<tr >
+						<td colspan="2"><hr ></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input onblur="b_uname()" type="text" id="uname" placeholder="请输入您的用户名"/>
+							<label class="text_red" id="uname_msg">&nbsp;</label>
+						</td>
+					</tr>
+					<!-- <tr>
+						<td>
+							<span id="uname_msg"></span>
+						</td>
+					</tr> -->
+					<tr>
+						<td colspan="2">
+							<input type="text" id="upwd" placeholder="请输入密码"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="log"/>
+							<label class="tx_style" form="log">自动登录</label>
+						</td>
+						<td align="right">
+							<a class="tx_style" href="#">忘记密码？</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="button">登录</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

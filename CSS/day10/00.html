@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
+    <meta charset="UTF-8" />
+<style type="text/css">
+#menu,#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#menu>li:hover {
+    background-color: #9cf;
+}
+#menu>li {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    float: left;
+    background-color: #9ff;
+}
+#menu>li>ul {
+    position: absolute;
+    min-width: 100%;
+    top: 100%;
+    background-color: #cff;
+    display: none;
+}
+#menu>li:hover>ul {
+    display: block;
+}
+#menu>li li:hover {
+    background-color: #99f;
+}
+</style>
+</head>
+<body>
+<ul id="menu">
+    <li>菜单1
+        <ul>
+            <li>子菜单1-1</li>
+            <li>子菜单1-2</li>
+            <li>子菜单1-3</li>
+            <li>子菜单1-3</li>
+        </ul>
+    </li>
+    <li>菜单2
+        <ul>
+            <li>子菜单2-1</li>
+            <li>子菜单2-2</li>
+            <li>子菜单2-3</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

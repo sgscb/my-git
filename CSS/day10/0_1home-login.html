@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function show_uanme(){
+				uname_msg1.innerHTML="请输入您的用户名"
+				uname_msg2.innerHTML=""
+				uname_msg3.innerHTML=""
+				
+			}
+		</script>
+		<style type="text/css">
+			#content{
+				width: 1382px;
+				height: 737px;
+				background: url(./img/bg.png) no-repeat;
+				background-size: contain;
+				margin: auto;
+			}
+			#content table{
+				box-sizing: border-box;
+				width: 590px;height: 469px;
+				color: white;
+				font-size: 13px;
+				background-color: rgba(0,0,0,0.2);
+				display: block;
+				float: right;
+				margin-top: 50px;
+				margin-right: 35px;
+				padding:14.4px 30px;
+			}
+			#content input{
+				width: 275px;
+				height: 35px;
+				margin: 10px 0;
+				padding: 0 10px;
+				outline: 0;
+				border: 0;
+				}
+			#content h4{
+				margin: 10px 0;
+				}
+			#content button{
+				width: 100%;
+				line-height: 35px;
+				margin-top: 20px;
+				border: 0;
+				border-radius: 3px;
+				background-image: repeating-linear-gradient(to right,#08f,#09f,#08f);
+			}
+			.tx_color{
+				color: white;
+				text-decoration: none;
+				}
+			#uname_msg1	{
+				color: #fff;
+				background-color: #666;
+			}
+		</style>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div>
+				<table>
+					<tr>
+						<td><h4>新用户注册</h4></td>
+						<td align="right"><a class="tx_color" href="#">直接登录</a></td>
+						<td>sp</td>
+					</tr>
+					<tr>
+						<td align="right">用户名：</td>
+						<td><input type="text" id="uname" placeholder="请输入用户名" onfocus="show_uanme()"/></td>
+						<td><label id="uname_msg1"></label><label id="uname_msg2"></label><label id="uname_msg3"></label></td>
+					</tr>
+					<tr>
+						<td align="right">用户名：</td>
+						<td><input type="text" id="uname" placeholder="请输入用户名"/></td>
+						<td><label id="uname_msg"></label></td>
+					</tr>
+					<tr>
+						<td align="right">用户名：</td>
+						<td><input type="text" id="uname" placeholder="请输入用户名"/></td>
+						<td><label id="uname_msg"></label></td>
+					</tr>
+					<tr>
+						<td align="right">用户名：</td>
+						<td><input type="text" id="uname" placeholder="请输入用户名"/></td>
+						<td><label id="uname_msg"></label></td>
+					</tr>
+					<tr>
+						<td align="right">用户名：</td>
+						<td><input type="text" id="uname" placeholder="请输入用户名"/></td>
+						<td><label id="uname_msg"></label></td>
+					</tr>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button class="tx_color" type="button">提交用户信息</button></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
