@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#footer{
+				width: 1000px;
+				display: flex;
+				margin: 0 auto;
+			}
+			#f_left{
+				flex-basis: 33.33%;
+				/* display: flex; */
+				flex-wrap: wrap;
+				align-self: flex-start;
+			}
+			#f_center{
+				display: flex;
+				flex-basis: 33.333%;
+				justify-content: space-between;
+			}
+			#f_center>ul{
+				list-style: none;
+			}
+			#f_right{
+				flex-basis: 33.33%;
+				display: flex;
+				justify-content: flex-end;
+			}
+			#f_right .service{width: 125px;}
+		</style>
+	</head>
+	<body>
+		<div id="footer">
+			<div id="f_left">
+				<p><img src="img/logo.png" ></p>
+				<p><img src="img/footerFont.png" ></p>
+			</div>
+			<div id="f_center">
+				<ul>
+					<li><a href=""><h3>卖家帮助</h3></a>
+					<li><a href="">新手指南</a></li>
+					<li><a href="">服务保障</a></li>
+					<li><a href="">常见问题</a></li>
+				</ul>
+				<ul>
+					<li><a href=""><h3>商家帮助</h3></li>
+					<li><a href="">商家入驻</a></li>
+					<li><a href="">商家后台</a></li>
+				</ul>
+				<ul>
+					<li><a href=""><h3>卖家帮助</h3></li>
+					<li><a href="">商家入驻</a></li>
+					<li><a href="">商家入驻</a></li>
+					<li>
+						<img src="img/wechat.png" >
+						<img src="img/sinablog.png" >
+					</li>
+				</ul>
+			</div>
+			<div id="f_right">
+				<div class="service">
+					<p>学子商城客户端</p>
+					<img src="img/ios.png" ><br>
+					<img src="img/android.png" >
+				</div>
+				<img src="img/erweima.png" >
+			</div>
+		</div>
+	</body>
+</html>
