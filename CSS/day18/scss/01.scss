@@ -1,8 +1,27 @@
+@import "_aaa.scss";
 $ml-color:#0aaled;
+$my-size:26px;
+$name:晚点睡;
 div{
 	background-color: #f00;
-	width: 30px+10px;
+	width: 20px+10px;
 }
 p{
 	border-color:$ml-color;
+}
+.my-size{
+	content:$name;
+	font-size:$my-size;
+}
+#content{
+	div{
+		color:#111;
+		a{color:#555;}
+		p{background-color:#556565;}
+	}
+	p{
+		border-color:#e6e6e6;
+		a{	text-decoration: none;}
+		span{display:none;}
+	}
 }

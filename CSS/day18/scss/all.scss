@@ -1,0 +1,24 @@
+
+div{
+	$num:70;
+	@if($num>90){
+	   content: "大G";
+	}@else if($num>80){
+		content:凯宴;
+	}@else if($num>70){
+		content:saf;
+	}@else{
+		content: "保证不打屎";
+	}
+	
+}
+
+
+p{
+	color: #112233 + #442266;
+	background-color: rgba(1,2,2, .6) + rgba(6,5,1,.6);
+	height: ceil(2.2);
+	width: round(3.6);
+}
+@import "_02.scss.";
+@import "01.scss"; 

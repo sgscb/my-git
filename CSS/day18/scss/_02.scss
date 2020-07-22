@@ -1,0 +1,31 @@
+
+$px_200:200px;
+$bg_yellow:yellow;
+$bg_red:red;
+@mixin my_border($dir,$c1,$c2) {
+	background-image: -webkit-linear-gradient($dir,$c1,$c2);
+	background-image: -o-linear-gradient($dir,$c1,$c2);
+	background-image: -moz-linear-gradient($dir,$c1,$c2);
+	background-image: -ms-linear-gradient($dir,$c1,$c2);
+}
+p{
+	width: $px_200;
+	height: $px_200;
+	background-image: linear-gradient(to right,$bg_yellow 40%,$bg_red 40%);
+}
+div{
+	
+	p:hover{
+	border-radius: 50%;
+	content: "中午"+吃什么;
+	font-family: jok+"erman";
+ }
+}
+#d2{
+	@include my_border(top,#666,#4f4);
+	
+}
+.btn{
+	color:#000000;
+	&:hover{color:#fff;}
+} 

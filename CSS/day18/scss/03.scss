@@ -1,0 +1,16 @@
+#content{
+   color:#111;
+   div{
+		 color:#222;
+      p{
+         color:#333;
+         span{color:#444;}
+      }
+   }
+	 &:hover{color:#f0f;}
+}
+$w_400:400px;
+p{
+	font-size: #w_400 - 200px;
+	
+}

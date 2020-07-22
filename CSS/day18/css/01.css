@@ -1,6 +1,30 @@
+@charset "UTF-8";
+a {
+  width: #my_width; }
+
 div {
   background-color: #f00;
-  width: 40px; }
+  width: 30px; }
 
 p {
-  border-color: #0aa led; }
+  border-color: #0aa led;
+	 background-color: ;
+	 }
+
+.my-size {
+  content: 晚点睡;
+  font-size: 26px; }
+
+#content div {
+  color: #111; }
+  #content div a {
+    color: #555; }
+  #content div p {
+    background-color: #556565; }
+
+#content p {
+  border-color: #e6e6e6; }
+  #content p a {
+    text-decoration: none; }
+  #content p span {
+    display: none; }

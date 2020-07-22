@@ -1,0 +1,9 @@
+
+.my_input{border-color: #0AA1ED;}
+.my_input:focus{
+	box-shadow: none;
+	border-color: #0AA1ED;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+			content: "|";
+		}

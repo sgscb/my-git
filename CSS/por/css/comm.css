@@ -1,0 +1,14 @@
+body{background-color: #f5f5f5;}
+.font_small{font-size: 0.8rem;}
+.my_footer,.my_header{
+	width: 100%;
+	border: 0;
+}
+@media (min-width:576px) {
+	.my_header{
+		height: 6rem;
+	}
+	.my_footer{
+		height: 25rem;
+	}
+}

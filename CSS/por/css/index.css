@@ -1,0 +1,8 @@
+.carousel-indicators li{
+	width: 0.8rem;height: 0.8rem;
+	border-radius: 50%;
+	background-color: #fff;
+}
+.carousel-indicators .active{
+	background-color: #0099e5;
+}
