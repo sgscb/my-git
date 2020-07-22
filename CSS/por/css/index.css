@@ -1,8 +1,24 @@
 .carousel-indicators li{
 	width: 0.8rem;height: 0.8rem;
 	border-radius: 50%;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 	background-color: #fff;
 }
 .carousel-indicators .active{
 	background-color: #0099e5;
 }
+.carousel-control-prev,
+.carousel-control-next {
+	width: 4%;height: 20%;
+	top: 40%;
+	background-color: #bbb;
+	border-radius: 0.25rem;
+}
+.carousel-control-prev{left: 5px;}
+.carousel-control-next{right: 5px;}
+.bg_color>div>div{background-color:#a7a7a7;}
+.floor_h>div:first-child>div,
+.floor_h>div:nth-child(2)>div{height: 377px;}
+.floor_h>div:nth-child(3)>div,
+.floor_h>div:nth-child(4)>div{height: 233px;}
