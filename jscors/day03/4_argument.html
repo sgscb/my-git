@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pay(){
+            if(arguments.length==0){
+                console.log(`手机支付...`)
+            }else if(arguments.length==1){
+                console.log(`现金支付...从${arguments[0]}RMB`)
+            }else{
+                console.log(`从你银行卡${arguments[0]}扣除`);
+                
+            }
+        }
+        pay(256,455)
+    </script>
+</body>
+</html>

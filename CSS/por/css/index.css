@@ -12,13 +12,39 @@
 .carousel-control-next {
 	width: 4%;height: 20%;
 	top: 40%;
-	background-color: #bbb;
+	background-color: #ababab;
 	border-radius: 0.25rem;
 }
 .carousel-control-prev{left: 5px;}
 .carousel-control-next{right: 5px;}
-.bg_color>div>div{background-color:#a7a7a7;}
+.bg_color>div>div{background-color:#e6e6e6;}
 .floor_h>div:first-child>div,
 .floor_h>div:nth-child(2)>div{height: 377px;}
 .floor_h>div:nth-child(3)>div,
 .floor_h>div:nth-child(4)>div{height: 233px;}
+.price{
+	font-size: 1.5rem;
+	color: #0AA1ED;
+	margin-bottom: 12px;
+}
+@media (min-width:768px) {
+.img_nth1{
+	margin-top: -200px;
+	margin-right: 10px;
+}
+.img_nth2{
+	margin-top: -150px;
+	margin-right: 18px;
+}
+}
+@media (max-width:767.99px) {
+.img_nth1{
+		margin-top: -260px;
+		margin-right: 10px;
+	}
+.img_nth2{
+		margin-top: -150px;
+		margin-right: 18px;
+	}
+	
+}

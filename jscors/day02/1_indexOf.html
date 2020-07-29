@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--所有js代码都要写在一个<script>标签中-->
+  <script>
+    //请用户输入一条消息内容
+    var str=prompt()
+    //在消息中查找敏感词"我草"的位置
+    var a=str.indexOf("卧槽")
+    //如果找到"我草"
+    if(a!=-1){
+      //就在网页中输出红字"发现敏感词，禁止发送"
+      document.write(`<h1 style="color:red;">发现敏感词禁止访问</h1>`)
+    }else{
+    //否则如果没找到"我草"
+      document.write(`<h1 style="color:green">发送成功</h1>`)
+    }
+      //就在网页中输出绿字:"然哥说: 消息内容"
+  </script>
+</body>
+</html>

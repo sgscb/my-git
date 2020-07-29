@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function(){
+            var start=new Date()
+            console.log(`页面开始加载${start.toLocaleDateString()}`)
+        })();
+
+        function tim(){
+            var end=new Date();
+            alert(`页面结束时间${end.toLocaleDateString()}`)
+        };
+        tim();
+        console.log(window)
+    </script>
+</body>
+</html>
