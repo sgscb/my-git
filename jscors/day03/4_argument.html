@@ -9,15 +9,14 @@
     <script>
         function pay(){
             if(arguments.length==0){
-                console.log(`手机支付...`)
+                console.log(`手机支付。。。`)
             }else if(arguments.length==1){
-                console.log(`现金支付...从${arguments[0]}RMB`)
+                console.log(`收费${arguments[0]}元。`)
             }else{
-                console.log(`从你银行卡${arguments[0]}扣除`);
-                
+                console.log(`从银行卡${arguments[0]}扣费`)
             }
-        }
-        pay(256,455)
+      }
+      pay()
     </script>
 </body>
 </html>

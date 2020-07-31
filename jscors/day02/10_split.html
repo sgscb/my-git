@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var email="zhangdong@tedu.cn@12332";
+        var arr=email.split("@");
+        console.log(` 用户名：${arr[0]},域名：${arr[1]},密码:${arr[2]}`)
+        var str="you  can you  up  "
+        var reg=/\s+/;
+        // var arr=str.split(reg);
+        var reg=new RegExp("\\s+");
+        var arr=str.split(reg)
+        console.log(arr)
+    </script>
+</body>
+</html>

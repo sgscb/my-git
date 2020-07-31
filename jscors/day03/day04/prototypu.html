@@ -7,13 +7,14 @@
 </head>
 <body>
     <script>
-        var fun;
-        var fun=new Function("console.log(3)")
-        fun=new Function("console.log(1)");
-        fun();//1
-        fun=new Function("console.log(2)");
-        fun();//2
-     fun();//2
+        Array.prototype.sum=function(){
+            var sum=0;
+            for(var i=0;i<this.length;i++;){
+                sum+=this.length
+            }
+            return sum;
+        }
+        var arr1=[1,2,3]   
     </script>
 </body>
 </html>
