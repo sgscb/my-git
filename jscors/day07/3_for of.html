@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=["亮亮","然然","东东"];
+        // arr.forEach(elem=>console.log(`${elem}-到！`))
+        for(var elem of arr){
+            console.log(`${elem}`)
+        }
+        function add(){
+            var result=0;
+            for(var elem of arguments){result+=elem;}
+            return result;
+        }
+        console.log(add(1,2,3))
+    </script>
+</body>
+</html>

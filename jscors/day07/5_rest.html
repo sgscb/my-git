@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jisuan(ename,...arr){
+            var sum=arr.reduce((box,elem)=>box+elem);
+            console.log(`${ename}的总工资是${sum}`)
+        }
+        jisuan("huihui",1000,2000,6554,15855.6545)
+        var arr=[1,2,3,4,5,6]
+        console.log(Math.max(...arr))
+        var obj1={x:1,y:2};
+        var obj2={m:3,n:3};
+        var obj3={i:10,...obj1,r:"回火",...obj2}
+        console.log(obj3)
+    </script>
+</body>
+</html>

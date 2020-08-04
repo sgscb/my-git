@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var eric={
+            eid:1001,
+            ename:"埃里克",
+            salary:12000
+        }
+        Object.defineProperty(eric,"eid",{
+            writable:false,
+            configurable:false,
+        });
+        Object.defineProperty(eric,"ename",{
+            configurable:false
+        })
+        Object.defineProperty(eric,"salary",{
+            enumerable:false,
+            configurable:false
+        })
+        Object.defineProperty(eric,"eid",{
+            writable:true
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,
+            ename:"埃里克",
+            salary:12000
+        }
+        Object.defineProperties(eric,{
+            eid:{
+                writable:false,
+                configurable:false   
+            },
+            ename:{
+                configurable:false
+            },
+            salary:{
+                enumerable:false,
+                configurable:false
+            }
+        })
+        eric.eid=12;
+        for(var key in eric){
+            console.log(`属性名：${key},属性值：${eric[key]}`)
+        }
+    </script>
+</body>
+</html>
