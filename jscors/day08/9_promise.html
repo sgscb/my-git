@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function liang(){
+            return new Promise(function(door,err){
+              var bang="接力棒";
+              var qkl="巧克力";
+                console.log(`liang吃了${qkl}起跑...`);
+                 setTimeout(function(){
+                console.log(`linag拿着${bang}到达终点！`)
+                door({bang,qkl});
+                // console.log(door)
+            },6000)
+          })
+        }
+        function ran({bang,qkl}){
+            return new Promise(function(door){
+            console.log(`ran吃了${qkl}起跑`);
+            setTimeout(function(){
+                console.log(`ran拿着${bang}到达终点!`)
+                door({bang,qkl});
+            },4000)    
+          })
+        }
+        function dong({bang,qkl}){
+            console.log(`dong拿着${qkl}起跑...`);
+            setTimeout(function(){
+                console.log(`dong拿着${bang}到达终点！`)
+            },2000)
+        }
+        // liang();
+        // ran();
+        // dong();
+        // liang(
+        //     function(){
+        //         ran(
+        //             function(){
+        //                 dong()
+        //             }
+        //         );
+        //     }
+        // );
+        liang().then(ran).then(dong);
+    </script>
+</body>
+</html>
