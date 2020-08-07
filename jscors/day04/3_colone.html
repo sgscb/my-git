@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj={
+      sname:"lilei",
+      sage:12,
+      lod:function(){
+        console.log(`Im${this.sname}I'm${this.sage}`)
+      }
+    }
+    function clone(kobj) {
+      var newObj={};
+      for(var key in kobj){
+        var value=obj[key];
+        newObj[key]=value;
+      }
+      return newObj;
+    }
+    var obj2=clone(obj);
+    console.log(obj2,obj2.lod());
+    obj2.sage=16;
+    obj2.vav="dfs";
+    console.log(obj2)
+  </script>
+</body>
+</html>

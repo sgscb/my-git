@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function parent(){
+      var total=1000;
+      return function(money){
+        total-=money
+        console.log(`花了${total}`)
+      }
+    }
+    var avc=parent();
+    avc(100);
+    total=500;
+    avc(100);
+    avc=null;
+    console.log(total)
+    // var avc=parent();
+    // total=0;
+    // avc(300);
+    // console.log(window)
+    // avc(100)
+  </script>
+</body>
+</html>
