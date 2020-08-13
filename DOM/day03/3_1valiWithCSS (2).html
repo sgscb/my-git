@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>实现带样式的表单验证</title>
+	<link rel="Stylesheet" href="css/5.css" />
+ </head>
+ <body>
+	<form id="form1">
+		<h2>增加管理员</h2>
+		<table>
+			<tr>
+				<td>姓名：</td>
+        <td>
+					<input name="username"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div>
+						10个字符以内的字母、数字或下划线的组合
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="password" name="pwd"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div>6位数字</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+          <input type="submit" value="保存"/>
+          <input type="reset" value="重填"/>
+				</td>
+			</tr>				
+	    </table>
+	</form>
+	<script>
+		//先获取form元素: 
+		var form=document.forms[0];
+		console.log(form.elements);
+		//DOM 4步
+		//1. 查找触发事件的元素
+		//本例中: 姓名文本框失去焦点时自动验证内容
+		var txtName=form.username;
+							//form.elements["username"];
+			//复习DOM第一天
+		txtName.focus()
+		//2. 绑定事件处理函数
+		//本例中: 当文本框失去焦点时，才验证
+		txtName.onblur=function(){
+			//3. 查找要修改的元素
+			//本例中: 要改的是当前文本框旁边的div
+			var div=this.parentElement
+									.nextElementSibling
+									.children[0]
+			//4. 修改元素
+			//定义正则表达式: 
+			var reg=/^\w{1,10}$/;//复习js高级第一天
+			//先验证当前文本框的内容是否通过
+			var bool=reg.test(this.value)//复习js高级第三天
+			//如果验证当前文本框的内容通过
+			if(bool==true){
+				div.className="vali_success";//css中已经定义好的成功class
+			}else{//否则如果验证当前文本框的内容不通过
+				div.className="vali_fail";//css中已经定义好的失败class
+			}
+		}
+
+	</script>
+ </body>
+</html>

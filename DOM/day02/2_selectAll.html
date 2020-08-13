@@ -43,6 +43,38 @@
 	  </tbody>
 	</table>
 	<button>删除选定</button>
-  <script src="js/2.js"></script>
+  <script>
+		//另一个开着的span，注定要关上！（清除class）
+				//问题: 如果单击按钮时所有span都是关着的，则找不到另一个开着的otherSpan，则什么也不需要做！
+				//只有找到了另一个开着的span时，才有必要关闭另一个span
+			//1.查找触发事件的元素
+			document.querySelector("thead input")
+			//2.绑定事件函数
+			.onclick=function(){
+			//3.
+				var chbs=
+						document.querySelectorAll("tbody input");
+				//4.修改元素
+				for(var chb of chbs){
+				//如果上边的chbAll选中，则下方每个chb都选中
+				//如果上边的chbAll不选中，则下方每个chb都不选中
+				//结论: 让下方每个chb的选中状态和上边的chbAll的选中状态保持一致即可！
+				chb.checked=this.checked;
+				}
+			}
+			var chbs=document.querySelectorAll("tbody input");
+			for(var chb of chbs){
+				chb.onclick=function(){
+					var chbAll=document.querySelector("thead input");
+					var unchecked=document.querySelector(
+						"tbody input:not(:checked)");
+					if(unchecked==null){
+						chaAll.checked=true;
+					}else{
+						chbAll.checked=false;
+					}
+				}
+			}
+	</script>
 </body>
 </html>

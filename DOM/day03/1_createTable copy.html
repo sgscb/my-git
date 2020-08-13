@@ -18,6 +18,9 @@
             <th>age</th>
           </tr>
         </thead>
+        <tbody>
+          
+        </tbody>
       </table>
     </div>
 </head>
@@ -29,13 +32,14 @@
     {"ename":"John", "salary":13000, "age":28},
     {"ename":"Mary", "salary":12000, "age":25}
   ];
-	var tbody=document.createElement("tbody");
-  
+	// var tbody=document.createElement("tbody");
+  var frag=document.createDocumentFragment();
   //2.遍历json数组中的每一个员工对象
   for(var emp of json){
+    console.log(emp)
     //创建tr
     var tr=document.createElement("tr");
-    tbody.appendChild(tr); 
+    frag.appendChild(tr); 
     for(var key in emp){
       var td=document.createElement("td");
       tr.appendChild(td);
@@ -43,8 +47,8 @@
     }
   }
   // 最后添加
-  var table=document.querySelector("#data>table");
-  table.appendChild(tbody)
+  var tbody=document.querySelector("#data>table>tbody");
+  tbody.appendChild(frag)
   </script>
 </body>
 </html>

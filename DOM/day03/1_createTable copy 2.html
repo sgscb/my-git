@@ -16,6 +16,7 @@
             <th>ename</th>
             <th>salary</th>
             <th>age</th>
+            <th>delete</th>
           </tr>
         </thead>
       </table>
@@ -34,12 +35,26 @@
   //2.遍历json数组中的每一个员工对象
   for(var emp of json){
     //创建tr
-    var tr=document.createElement("tr");
-    tbody.appendChild(tr); 
+    // var tr=document.createElement("tr");
+    // tbody.appendChild(tr);
+    var tr=tbody.insertRow(0) 
     for(var key in emp){
-      var td=document.createElement("td");
-      tr.appendChild(td);
+      // var td=document.createElement("td");
+      // tr.appendChild(td);
+      var td=tr.insertCell();
       td.innerHTML=emp[key];
+    }
+    var td=tr.insertCell()
+    var btn=document.createElement("button")
+    btn.innerHTML="×"
+    td.appendChild(btn)
+    btn.onclick=function(){
+      // this.innerHTML="❀";
+      var tr=this.parentElement.parentElement;
+      var ename=tr.cells[0].innerHTML;
+      if(confirm(`是否删除${ename}?`)){
+        table.deleteRow(tr.rowIndex);
+      }
     }
   }
   // 最后添加

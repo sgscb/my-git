@@ -11,5 +11,31 @@
     <button id="btnShoot">shoot</button><br>
     <button id="btnAward">获得跟踪导弹</button><br>
     <button id="btnBreak">失去跟踪导弹</button><br>
+ <script>
+    var btnShoot=document.getElementById("btnShoot");
+    var btnAward=document.getElementById("btnAward");
+    var btnBreak=document.getElementById("btnBreak");
+    var arr=[];
+    btnShoot.onclick=function(){
+       console.log(`发送普通子弹`)
+    }
+   //  function shoot2(){
+   //     alert(`发射跟踪导弹=>=>=>`)
+   //  }
+   //点击获取导弹按钮 添加数组，并添加事件队列
+    btnAward.onclick=function(){
+       arr.push(function(){alert("发射跟踪导弹=>=>=>")})
+      //  btnShoot.onclick=function(){
+       btnShoot.addEventListener("click",arr[arr.length-1]);
+         console.log(arr)
+    }
+    //点击失去导弹按钮 弹出pop()一个处理函数
+    btnBreak.onclick=function(){
+       var fun=arr.pop();
+       //移除事件队列
+       btnShoot.removeEventListener("click",fun);
+       console.log(arr)
+    }
+ </script>
  </body>
 </html>
