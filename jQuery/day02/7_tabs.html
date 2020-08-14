@@ -26,6 +26,18 @@
 			<li class="active"><a data-toggle="tab" href="#">十元套餐</a></li>
 			<li><a data-toggle="tab" href="#">二十元套餐</a></li>
 			<li><a data-toggle="tab" href="#">三十元套餐</a></li>
-		</ul>
+    </ul>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+      //dom4步
+      //1.查找触发事件的元素
+      $("ul.tabs>li>a")
+      .click(function(){
+        $(this).parent()
+          .addClass("active")
+          .siblings()
+          .removeClass("active")
+      })
+    </script>
  </body>
 </html>

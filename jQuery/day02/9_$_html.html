@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    //想在页面上创建一个a
+    var $a=$(`<a href="http://tmooc.cn">go to tmooc</a>`)
+    //想把a放在body下第一个元素之前: 
+    $("body").prepend($a);
+    //想把a放在body下最后一个元素之后: 
+    // $("body").append($a)
+    //再创建一个文本框
+    var $txt=$(`<input>`);
+    //想把文本框放在a之前
+    $a.before($txt);
+    //想把文本框放在a之后
+    //$a.after($txt);
+    //想用文本框代替a
+    // $a.replaceWith($txt);
+  </script>
+</body>
+</html>

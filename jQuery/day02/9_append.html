@@ -33,7 +33,32 @@
 	
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
-		
+		//点击按钮添加新方块
+		$("#add-block")//只有一次不用放变量
+		  .click(function(){
+				$(`<div class="block">
+				<span class="close">×</span>
+			</div>`)
+			.css("background-color",`rgb(${
+				parseInt(Math.random()*256)
+			},${
+				parseInt(Math.random()*256)
+			},${
+				parseInt(Math.random()*256)
+			})`) 
+			.prependTo(".container");
+		});
+		//功能2：点×，删除×所在的元素
+		$(".container")
+		.click(function(e){
+			var $span=$(e.target);
+			console.log(e)
+			console.log(e.target)
+			console.log($span)
+			if($span.hasClass("close")){
+				$span.parent().remove();
+			}
+		})
 	</script>
 	
  </body>
