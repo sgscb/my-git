@@ -21,6 +21,48 @@
   s3在屏幕左上角的小星星，点击后从左上角移动到屏幕右下边，走斜线
   s4点击小星星，变大、变淡....  直至消失
 */
+$("#s1").click(function(){
+  var $this=$(this);
+  if($this.is(":animated")){
+    $this.stop();
+  }else{
+    $this.animate({
+    left:400
+    },2000)
+  }
+})
+
+$("#s2").click(function(){
+  var $this=$(this);
+    if($this.is(":animated")){
+      $this.stop(true);
+    }else{
+      $this.animate({left:400},2000)
+    .animate({top:200},1000)
+    }
+})
+
+$("#s3").click(function(){
+  var $this=$(this);
+  if($this.is(":animated")){
+      $this.stop();
+    }else{
+      $this.animate({
+      left:400,
+       top:200
+    },3000)
+  }
+})
+$("#s4").click(function(){
+  alert("疼！")
+  $(this).animate({
+    width:256,
+    height:256,
+    opacity:0
+  },2000,function(){
+    $(this).hide();//display:none
+  })
+})
 </script>
 </body>
 </html>

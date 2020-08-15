@@ -20,7 +20,17 @@
 	<div id="d1">abcd</div>
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
+		$("#btn1").click(function(){
 		//测试animate支持哪些属性
+		$("#d1").animate({
+			width:400,
+			left:400,
+			opacity:0,
+			padding:50,
+			backgroundColor:"red",
+			transform:"rotate(90deg)"
+		},2000)
+		})
     //测试启动和停止动画
     //测试延迟执行
 	</script>

@@ -28,16 +28,13 @@
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 		$("#target")
-		// .hover(
-		// 	function(){
-		// 		$(this).addClass("hover")
-		// },
-		// 	function(){
-		// 		$(this).removeClass("hover")
-		// 	}	
-		// )
 		.hover(
-			function(){$(this).toggleClass("hover")}
+			function(){
+				$(this).addClass("hover")
+		},
+			function(){
+				$(this).removeClass("hover")
+			}	
 		)
 	</script>
  </body>
