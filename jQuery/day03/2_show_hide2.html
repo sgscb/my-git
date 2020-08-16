@@ -36,13 +36,21 @@
 <button data-toggle="brandlist">精简显示品牌</button>
 
 <script src="js/jquery-1.11.3.js"></script>
-<script>
+<script>//DOM4步
   //为data-toggle="brandlist"绑定单击事件:
-    //如果ul#list下有隐藏的元素，就显示全部
-      //顺便改当前按钮内容为"精简显示品牌"
-    //否则,隐藏5以上，但除最后一个元素之外的剩余元素
-      //顺便改当前按钮内容为"显示所有品牌"
-  
+    $("button")
+   .click(function(){
+     var $others=$("ul>li:gt(4):not(:last-child)");
+     console.log($others);
+     if($others.css("display")=="none"){
+       $others.show();
+       $(this).html(`精简显示品牌`);
+     }else{
+       $others.hide();
+       $(this).html(`显示所有品牌`);
+     }
+   })
+    
 </script>
 </body>
 </html>

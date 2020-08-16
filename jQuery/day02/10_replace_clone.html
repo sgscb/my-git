@@ -24,7 +24,10 @@
 
 <script src="js/jquery-1.11.3.js"></script>
 <script>
-  
+  $("#list>img")
+  .click(function(){
+    $(this).clone().replaceAll("#chosen>img")
+  })
 </script>
 </body>
 </html>

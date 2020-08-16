@@ -10,6 +10,13 @@
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 		//单击图片，切换下一张
+		$("img")
+		.click(function(){
+			var $this=$(this);
+			var alt=parseInt($this.attr("alt"));
+			alt<4?(alt++):(alt=1);
+			$this.attr({alt,src:`img/${alt}.jpg`});
+		})
 	</script>
  </body>
 </html>
