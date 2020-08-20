@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+      <img v-if="pm<100" src="img/1.png" alt="">
+      <img v-else-if="pm<200" src="img/2.png" alt="">
+      <img v-else-if="pm<300" src="img/3.png" alt="">
+      <img v-else="pm<360" src="img/4.png" alt="">
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        pm:300
+      },
+     methods:{}
+    })
+  </script>
+</body>
+</html>

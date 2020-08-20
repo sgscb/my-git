@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style>
+    .span-cls{padding: 5px 10px;}
+    .success{ 
+      color: red;
+      border: green;
+      background-color: lightgreen;
+    }
+    .fail{
+      color: red;
+      border: red;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+      手机号：<input @blur="vali" v-model="phone">
+      <span class="span-cls" :class="spanClass">{{msg}}</span>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        phone:"",
+        spanClass:{
+          fail:false,
+          success:false,
+        },
+        msg:"",
+      },
+      methods:{
+        vali(){
+          console.log(this.phone)
+          var reg=/^1[3-9]\d{9}$/;
+          if(reg.test(this.phone.trim())){
+            this.spanClass.success=true;
+            this.spanClass.fail=false;
+            this.msg="手机格式正确";
+          }else{
+            this.spanClass.success=false;
+            this.spanClass.fail=true;
+            this.msg="手机格式不正确";
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

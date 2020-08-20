@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <img :src="
+      pm25<100?'img/1.png':
+      pm25<200?'img/2.png':
+      pm25<300?'img/3.png':
+                'img/4.png'
+    ">
+    <h3>{{
+      pm25<100?'img/1.png':
+      pm25<200?'img/2.png':
+      pm25<300?'img/3.png':
+               'img/4.png'  
+    }}</h3>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        pm25:360
+      }
+    })
+  </script>
+</body>
+</html>

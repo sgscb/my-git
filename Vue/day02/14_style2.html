@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style>
+    img{
+      position:fixed;
+      /* bottom:100px; */
+      left: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <img :style="{bottom:imgBottom,marginLeft:imgMgLeft}" src="img/p3.png"> -->
+    <img src="img/p3.png" :style="{bottom,marginLeft}">
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        bottom:"100px",
+        marginLeft:"-100px"
+      }
+    })
+    window.onkeydown=function(e){
+      console.log(e.keyCode);
+      if(e.keyCode==37){
+        var mgLeft=parseInt(vm.marginLeft);
+       mgLeft-=10;
+        vm.marginLeft=mgLeft+"px";
+      }else if(e.keyCode==38){
+        var bottom=parseInt(vm.bottom);
+        bottom+=10;
+        vm.bottom=bottom+"px";
+      }
+    }
+  </script>
+</body>
+</html>
