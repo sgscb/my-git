@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <my-counter></my-counter>
+    <my-counter></my-counter>
+    <my-counter></my-counter>
+  </div>
+  <script>
+    Vue.component("my-counter",{
+      template:`<div>
+       <button @click="minus">-</button>
+       <span>{{n}}</span>
+       <button @click="add">+</button>
+     </div>`,
+     data(){
+       return {
+         n:0
+       }
+     },
+     methods:{
+       minus(){
+         if(this.n>0){this.n--}
+       },
+       add(){
+         this.n++
+       }
+     }
+    });
+    new Vue({
+      el:"#app"
+    })
+  </script>
+</body>
+</html>

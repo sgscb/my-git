@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+  <h1>必须用live server运行！且端口号必须是5500！</h1>
+  <script>
+    //向东哥新浪云服务器上/index接口地址发送请求
+    //请求首页的六个商品对象
+    $.ajax({//异步
+      url:"http://xzserver.applinzi.com/index",
+      type:"get",
+      dataType:"json",
+      success:function(result){
+        console.log(result);
+        document.write(`${result[1].pid}`)
+      }
+    })
+
+    //向东哥新浪云服务器的/details接口发送请求
+    //详情求5号商品的详细信息
+    $.ajax({//异步
+      url:"http://xzserver.applinzi.com/details",
+      type:"get",
+      data:{ lid:5 },//在运行时被翻译为"?lid=5"
+      dataType:"json",
+      success:function(result){
+        console.log(result);
+        // document.write(`${result.ok}`)
+      }
+    })
+
+    //向东哥新浪云服务器发送post请求
+    //请求登录验证用户名和密码
+    $.ajax({//异步
+      url:"http://xzserver.applinzi.com/users/signin",
+      type:"post",
+      data:{ uname:"dingding", upwd:"123456" },
+      dataType:"json",
+      success:function(result){
+        console.log(result);
+        // document.write(`${result}`)
+      }
+    })
+  </script>
+</body>
+</html>
