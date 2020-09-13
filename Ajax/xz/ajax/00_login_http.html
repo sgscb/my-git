@@ -52,7 +52,8 @@
 		//"get","/ajax/login_http?uname="+$uname+"&upwd="+$upwd,true);
 			url:"/ajax/login_http/",
 			type:"get",
-			data:"uname="+$uname"&upwd="+$upwd
+			// data:"uname="+$uname&"upwd="+$upwd
+			data:`uname=${$uname}&upwd=${$upwd}`
 			// data:"uname=dingding&upwd=123455"
 		}).then(result=>{
 			console.log(123123)
