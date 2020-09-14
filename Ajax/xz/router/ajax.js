@@ -44,7 +44,7 @@ router.get("/login_restful/:uname&:upwd",(req,res)=>{
 	var sql="select * from xz_user where uname=? and upwd=?";
 	pool.query(sql,[_uname,_upwd],(err,result)=>{
 		if(err) throw err;
-		if(result.lengh>0){
+		if(result.length>0){
 			res.send("1");
 		}else{
 			res.send("0");
@@ -74,6 +74,7 @@ router.delete("/user_del/:uid",(req,res)=>{
 router.post("/post_login",(req,res)=>{
 	var _uname=req.body.uname;
 	var _upwd=req.body.upwd;
+	console.log(_uname,_upwd)
 	//数据操作
 	res.send(_uname+"--------"+_upwd);
 });
