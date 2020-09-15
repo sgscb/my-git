@@ -19,19 +19,14 @@
 <script src="js/jquery-1.11.3.js"></script>
 <script>
   //请给每个不足60分的成绩+10分，并将超过90分的成绩用绿色背景标识出来
-  var arr=["亮亮","然然","东东"];
-  arr.forEach(function(elem){
-    console.log(`${elem} - 到`)
-  })
-  $("ul>li").each(function(i,elem){
-    var $elem=$(elem);
-    console.log($elem)
-    var score=parseInt($elem.html());
-    if(score<60){
+  $("#list>li").each(function(i,elem){
+   var $elem=$(elem)
+    if($elem.html()<60){
+      var score=parseInt($elem.html())
       score+=10;
-      $elem.html(score);
-    }else if(score>=90){
-      $elem.css("background-color","green")
+      $elem.html(score)
+    }else if($elem.html()>90){
+      $elem.css("background-color","lightgreen")
     }
   })
 </script>

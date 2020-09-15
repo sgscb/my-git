@@ -12,21 +12,13 @@
   <script src="js/jquery-1.11.3.js"></script>
   <script>
     //为三个按钮绑定单击事件，记录单击次数
-    //1.查找触发事件的元素
-    // var btn1=document.getElementById("btn1");
-    // var btn2=document.getElementById("btn2");
-    // var btn3=document.getElementById("btn3");
-    var $btn=$("button"); 
-    //2.绑定
-    // btn1.onclick=function(){
-      $btn.click(function(){
-        var $this=$(this);
-      //3.查找修改元素   自带循环
-      // var n=parseInt(this.innerHTML.slice(9,-1))
-      var n=parseInt($this.html().slice(9,-1))
+    var $buts=$("button")
+    $buts.click(function(){
+      var $this=$(this);
+      var n=parseInt($this.html().slice(9,-1));
+      console.log(n)
       n++;
-      // this.innerHTML=`click me(${n})`
-      $this.html(`click me(${n})`);
+      $this.html(`click me(${n})`)
     })
   </script>
 </body>
