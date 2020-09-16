@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <!--希望: 
+      pm25<100时，使用img/1.png
+      pm25<200时, 使用img/2.png
+      pm25<300时, 使用img/3.png
+      其余, 使用img/4.png
+      不能用{{}}
+    -->
+   <!-- 效率高,只在一个元素上变化 -->
+    <!-- <img :src="
+      pm25<100?'img/1.png':
+      pm25<200?'img/2.png':
+      pm25<300?'img/3.png':
+                'img/4.png'
+    "> -->
+    <!-- 效率低,要反复修改DOM树 -->
+    <img v-if="pm25<100" src="img/1.png">
+    <img v-else-if="pm25<200" src="img/2.png">
+    <img v-else-if="pm25<300" src="img/3.png">
+    <img v-else src="img/4.png">
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    pm25:300
+  }
+})
+</script>
+</body>
+</html>

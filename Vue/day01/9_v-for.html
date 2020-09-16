@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for遍历数组</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+<!-- key="下标|变量名" 是为每个html添加标识删除时提高效率
+(否则每次完全删除,重新添加) 以后v-for都要添加-->
+      <li v-for=" (elem,i) of names" :key="i">{{i+1}}-{{elem}}</li>
+    </ul>
+  </div>
+  <script>
+  var vm=new Vue({
+      el:"#app",
+      data:{
+        names:["斌斌","东东","花花","亮亮"]
+      }
+     
+    })
+  </script>
+</body>
+</html>

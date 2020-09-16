@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for分页效果(遍历数字)</title>
+  <script src="js/vue.js"></script>
+</head>
+<style>
+  ul{list-style: none;}
+  ul>li{
+    float: left;
+    padding: 5px 10px;
+    border: 1px solid black;
+  }
+  ul>li:last-child{border-radius: 0px 3px 3px 0px;}
+  ul>li:first-child{border-radius: 3px 0px 0px 3px;}
+  ul>li+li{border-left: 0;}
+  ul>li:hover{background: #e6e6e6;}
+</style>
+<body>
+  <div id="app">
+    <ul>
+      <!-- of会依次取得每次数的一个数字,保存到of前的变量中 -->
+      <li v-for=" (elem,i) of pageCount" :key="i">{{i}}</li>
+    </ul>
+  </div>
+  <script>
+  var vm=new Vue({
+      el:"#app",
+      data:{
+        pageCount:5,//共5页
+      }
+     
+    })
+  </script>
+</body>
+</html>

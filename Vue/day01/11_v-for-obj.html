@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for参数对象</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(elem,i) of cart" :key="i">
+      {{elem.lid}} | {{elem.lname}} | {{elem.price.toFixed(2)}} | 
+      {{parseFloat(elem.count)}} | 小计:¥{{parseFloat(elem.price*elem.count).toFixed(2)}}
+      </li>
+    </ul>
+  </div>
+<script>
+  new Vue({
+    el:"#app",
+    data:{
+      cart:[
+        {lid:1,lname:"小米",price:3699.26,count:6},
+        {lid:1,lname:"小木",price:1699.222,count:55},
+        {lid:1,lname:"华力",price:2699.00,count:4}
+      ]
+    }
+  })
+</script>
+</body>
+</html>

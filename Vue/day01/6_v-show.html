@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<style>
+  .pop{
+    width: 300px;height: 150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -70px;
+    /* background-color: aquamarine; */
+    background: linear-gradient(to right, red,green);
+    color: brown;
+    text-align: center;
+    text-shadow: 0 0 25px yellow;
+    transition: all 2s linear;
+  }
+  .close{
+    float: right;
+    margin: 10px;
+  }
+  
+</style>
+<body>
+<div id="app">
+  <button @click="show">登录</button>
+  <div v-show="isShow" class="pop">
+    <span class="close" @click="hide">×</span>
+    <h1>登陆成功</h1>
+  </div>
+</div>
+<script>
+  //v-show是通过切换black和none来控制元素显示隐藏
+var vm=new Vue({
+  el:"#app",
+  data:{
+    isShow:false  //开局对话框默认为隐藏
+  },
+  methods:{
+    show(){
+      this.isShow=true
+    },
+    hide(){
+      this.isShow=false
+    }
+  }
+})
+</script>
+</body>
+</html>
