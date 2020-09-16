@@ -14,17 +14,18 @@
 	<div id="d2">&lt;&lt;</div>
 	<div id="d3">内容的主体</div>
   <script>
+		//1.查找触发事件的元素
 		document.getElementById("d2")
-		//绑定
+		//2.绑定事件函数
 		.onclick=function(){
-		//查找要修改的元素
+		//3.查找要修改的元素
 			var d1=document.getElementById("d1");
-		//修改元素
-		if(d1.style.display!="none"){
-				d1.style.display="none"
-				this.innerHTML="&gt;&gt;"
-			}else{
-				d1.style.display="block";
+		//4.修改元素
+			if(d1.style.display!="none"){
+				d1.style.display="none";
+				this.innerHTML="&gt;&gt"
+			}else{//元素没有none会默认显示
+				d1.style.display="";
 				this.innerHTML="&lt;&lt"
 			}
 		}

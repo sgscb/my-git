@@ -17,7 +17,7 @@
   <button>清空重填</button>
 
   <hr/>
-  <div class="alert " id="alert1"></div>
+  <div class="alert" id="alert1"></div>
   <div class="alert" id="alert2">
     <span class="close">×</span>
     第一个警告框
@@ -27,16 +27,15 @@
 <script src="js/jquery-1.11.3.js"></script>
 <script>
   //选择包含"提交"二字的按钮，变为绿色按钮
-  $("button:contains(提交)")
-  .css("background-color","lightGreen")
+  $("button:contains(提交)").css("backgroundColor","purple")
   //选中包含.close按钮的.alert元素，让它们变为红色的警告框
-  $(".alert:has(.close)").css("background-color","pink")
+  $(".alert:has(.close)").css("border","2px solid red")
   //选中不包含.close按钮的.alert元素，让它们变为绿色的警告框
-  $(".alert:not(:has(.close))").css("background-color","red")
-  //为非空的alert元素添加红色影阴
-  $(".alert:parent").css("box-shadow","0 0 5px red");
+  $(".alert:not(:has(.close))").css("border","2px solid lightGreen")
+  //为非空的alert元素添加红色阴影(也不能有空字符)
+  $(".alert:parent").css("box-shadow","0 0 25px red")
   //为空的alert元素添加绿色阴影
-  $(".alert:empty").css("box-shadow","0 0 5px green")
+  $(".alert:empty").css("box-shadow","0 0 35px pink inset")
 </script>
 </body>
 </html>

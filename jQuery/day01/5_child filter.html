@@ -22,15 +22,20 @@
   <script src="js/jquery-1.11.3.js"></script>
   <script>
     //查找每个ul中第一个li
-    $("ul>li:first").css("background-color","pink")
+    $("ul>li:first-child")
+    .css("background-color","lightGreen")
     //查找每个ul中最后一个li
-    $("ul>li:last").css("color","red")
+    $("ul>li:last-child")
+    .css("color","red")
     //查找每个ul中处于偶数位置的
-    $("ul>li:even").css("box-shadow","0px 0px 20px #666")
+    $("ul>li:nth-child(2n-1)")
+    .css("font-size","2em")
     //查找每个ul中第2个li
-    $("ul>li:nth-child(2)").css("font-size","36px")
+    $("ul>li:nth-child(2)")
+    .css("box-shadow","0 0 5px blue")
     //查找作为ul下唯一子元素的li
-    $("ul>li:only-child").css("background-color","green")
+    $("ul>li:only-child")
+    .css("padding-left","50px")
   </script>
 </body>
 </html>

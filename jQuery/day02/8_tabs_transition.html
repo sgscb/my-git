@@ -20,8 +20,8 @@
 			width:100px; height:39px;
 			border:1px solid #000;
 			border-bottom:1px solid #fff;
-			position:absolute; top:0; left:0;
-			transition: left .5s linear;
+			position:absolute; top:0; left:0px;
+			transition:left .5s linear;
 		}
 	</style>
  </head>
@@ -37,13 +37,29 @@
 		</div>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script>
-			//DOM4步
-			var $as=$("ul>li>a")
+			var $as=$("ul>li>a");
+			// console.log($as)
 			$as.click(function(){
-				var $box=$(".box");
+				var $box=$(".box")
+				console.log(11)
 				var i=$(this).attr("data-i");
 				$box.css("left",i*100);
 			})
+			// //DOM4步
+			// //1. 查找触发事件的元素
+			// var $as=$("ul>li>a");
+			// //2. 绑定事件处理函数
+			// $as.click(function(){
+			// 	//3. 查找要修改的元素
+			// 	//本例中:要改box
+			// 	var $box=$(".box");
+			// 	//4. 修改元素
+			// 	//每个li宽100
+			// 	//获得当前a元素上缓存在data-i属性中的a的序号！
+			// 	var i=$(this).attr("data-i");
+			// 	//序号*li的宽就是box的新的left值
+			// 	$box.css("left",i*100);//jq中所有宽度、大小等数值都不用加px，自动加！
+			// })
 		</script>
  </body>
 </html>
