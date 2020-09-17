@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e接参数</title>
+  <script src="js/vue.js"></script>
+  <style>
+    #app div{width: 200px;height: 200px;cursor: pointer;}
+    #d1{background-image: radial-gradient(closest-side at 60% 55%, red, yellow, #523)}
+    #d2{background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)}
+  </style>
+</head>
+<body>
+<div id="app">
+ <div id="d1" @click="say">d1</div>
+ <div id="d2" @click="say">d2</div>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  methods:{
+    say(e){
+      console.log(`X:${e.offsetX},y:${e.offsetY}位置疼!`)
+      console.log(e.target)
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双向绑定</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--其实v-model会被new Vue()翻译为对应的事件绑定，比如: @input或@change -->
+  <input v-model:value="keyword">
+  <button @click="search">百度一下</button>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    keyword:""
+  },
+  methods:{
+    search(){
+      if(this.keyword.trim()!=""){
+        console.log(`查询${this.keyword.trim()}相关信息`)
+        this.keyword="哈哈"
+      }
+    }
+  }
+})
+</script>
+</body>
+</html>
