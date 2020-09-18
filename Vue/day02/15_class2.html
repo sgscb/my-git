@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style>
+    .span-cls{
+      padding:5px 10px;
+    }
+    .success{
+      background-color:lightGreen;
+      border:green;
+      color:green;
+    }
+    .fail{
+      background-color:pink;
+      border:red;
+      color:red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+ 手机号：<input @blur="vali_phone" v-model="phone">
+ <span :class="phone_class">{{phone_class.msg}}</span><br>
+ 身份证号：<input v-model="pid" @blur="vali_pid">
+ <span :class="pid_class">{{pid_class.msg}}</span>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    phone:"",
+    pid:"",
+    phone_class:{
+      success:false,
+      fail:false,
+      msg:""
+    },
+    pid_class:{
+      success:false,
+      fail:false,
+      msg:""
+    }
+  },
+  methods:{
+    vali_phone(){
+      var reg=/^1[3-9]\d{9}$/;
+      if(reg.test(this.phone)){
+        this.phone_class={
+          success:true,
+          fail:false,
+          msg:"√ 手机格式正确"
+        }
+      }else{
+        this.phone_class={
+          success:false,
+          fail:true,
+          msg:"×手机格式不正确"
+        }
+      }
+    },
+  vali_pid(){
+      var reg=/^\d{15}(\d\d[0-9Xx])}$/;
+      if(reg.test(this.pid)){
+        this.pid_class={
+          success:true,
+          fail:false,
+          msg:"√ 身份证号码格式正确"
+        }
+      }else{
+        this.pid_class={
+          success:false,
+          fail:true,
+          msg:"×手机格式不正确"
+        }
+      }
+    }
+  }
+})
+</script>
+</body>
+</html>

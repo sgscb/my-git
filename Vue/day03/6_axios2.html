@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <style>
+    [v-cloak]{display:none}
+  </style>
+</head>
+<body>
+  <ul id="app">
+    <li v-cloak>品名：{{title}}</li>
+    <!-- <li v-cloak>描述</li> -->
+    <!-- <li v-cloak>单价：¥</li> -->
+    <!-- <li v-cloak>服务承诺：</li> -->
+  </ul>
+<script>
+  var search=location.search;
+  if(search!==""){
+    console.log(search);
+    var lid=search.split("=")[1];
+
+    axios.get("http://xzserver.applinzi.com/details",
+      {
+        params:{lid}
+      }   
+    ).then(result=>{
+      console.log(result.data);
+      new Vue({
+        el:"#app",
+        data:{
+          title:result.data.product.title,
+        }
+      })
+    })
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display:none
+    }
+  </style>
+</head>
+<body>
+  <ul id="app">
+    <li v-cloak>品名: {{title}}</li>
+    <li v-cloak>描述: {{subtitle}}</li>
+    <li v-cloak>单价: ¥{{price.toFixed(2)}}</li>
+    <li v-cloak>服务承诺: {{promise}}</li>
+  </ul>
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script>
+    //!!!地址栏: xxx.html?lid=10
+
+    //从地址栏获得查询字符串参数
+    var search=location.search;
+    //如果有查询字符串参数的话
+    if(search!==""){
+      console.log(search);//?lid=10
+      //                        |
+      //                 ["?lid","10"]
+      //                    [0]   [1]
+      //将search按=切割，然后取第二部分商品编号值
+      var lid=search.split("=")[1];
+
+      //想从东哥新浪云服务器请求5号商品的详细信息
+      axios.get(
+        "http://xzserver.applinzi.com/details",
+        {
+          // params:{ lid:lid }
+          params:{ lid } 
+        }
+      ).then(result=>{
+        console.log(result.data);
+        new Vue({
+          el:"#app",
+          data:{
+            title:result.data.product.title,
+            subtitle:result.data.product.subtitle,
+            price:result.data.product.price,
+            promise:result.data.product.promise
+          }
+        })
+      })
+    }
+  </script>
+</body>
+</html>

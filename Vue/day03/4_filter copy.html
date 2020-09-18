@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>过滤器</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h3>性别1:{{sex1 | sexFilter | sexIcon}}</h3>
+  <h3>性别2:{{sex2 | sexFilter | sexIcon}}</h3>
+  <h3>性别1:{{sex1 | sexFilter("中文") | sexIcon}}</h3>
+  <h3>性别2:{{sex2 | sexFilter("中文") | sexIcon}}</h3>
+  <h3>性别1:{{sex1 | sexFilter("en") | sexIcon}}</h3>
+  <h3>性别2:{{sex2 | sexFilter("en") | sexIcon}}</h3>
+</div>
+<script>
+  Vue.filter("sexFilter",function(oldVal,yuyan){
+    if(yuyan=="中文"){
+      return oldVal==1?"男":"女";
+    }else{
+      return oldVal==1?"Male":"Female"
+    }
+  })
+  //希望在每个性别后*拼接*性别图标"♂":"♀"
+  Vue.filter("sexIcon",function(oldVal){
+    if(oldVal=="男"||oldVal=="Male"){
+      return oldVal+"♂"
+    }else{
+      return oldVal+"♀"
+    }
+  })
+var vm=new Vue({
+  el:"#app",
+  data:{
+    sex1:1,
+    sex2:0
+  }
+})
+</script>
+</body>
+</html>

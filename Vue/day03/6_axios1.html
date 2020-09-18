@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+</head>
+<div id="data">
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名称</th>
+        <th>描述</th>
+        <th>单价</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(p,i) of products" key="i">
+        <td>{{p.title}}</td>
+        <td>{{p.details}}</td>
+        <td>{{p.price.toFixed(2)}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+  axios.get(
+    "http://xzserver.applinzi.com/index"
+  ).then(result=>{
+    console.log(result.data);
+      new Vue({
+        el:"#data",
+        data:{
+          products:result.data
+        }
+      })
+  })
+</script>
+</body>
+</html>

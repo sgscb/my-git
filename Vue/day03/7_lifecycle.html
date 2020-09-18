@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(p,i) of cart" :key="i">
+      {{p.lid}} |  {{p.lname}} | {{parseFloat(p.price).toFixed(2)}} | {{parseInt(p.count)}}
+    </li>
+  </ul>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    cart:[
+      {lid:1,lname:"华为",price:5588,count:2},
+      {lid:1,lname:"苹果",price:3588,count:4},
+      {lid:1,lname:"小米",price:2588,count:5},
+    ]
+  },
+  //必经阶段
+  beforeCreate(){//创建阶段
+    console.log(`开始创建 new Vue()和data{}之前自动触发...`)
+  },
+  created(){
+    console.log(`开始创建 new Vue()和data{}之后自动触发...`)
+  },
+  beforeMount(){//挂载阶段
+    console.log(`开始创建虚拟DOM树之前自动触发...`)
+  },
+  mounted(){
+    console.log(`开始创建虚拟DOM树创建完,且首次加载页面内容之后自动触发...`)
+  },
+  //更新data中的变量时才触发
+  beforeUpdate(){//更新阶段
+    console.log(`更新data中的变量前自动执行...`)
+  },
+  updated(){
+    console.log(`更新data中的变量之后自动执行...`)
+  },
+  // 销毁组件时触发
+  beforeDestroy(){
+    console.log(`销毁组件前自动触发...`)
+  },
+  destroyed(){
+    console.log(`销毁组件后自动触发...`)
+  }
+})
+</script>
+</body>
+</html>
