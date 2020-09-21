@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <script src="js/index.js">//var Index={...}</script>
+
+  <script src="js/details.js">//var details={...}</script>
+
+  <script src="js/not-found.js"></script>
+  <script src="js/router.js">//var router={...}</script>
+
+</head>
+<body>
+  <script src="js/my-Header.js"></script>
+  <div id="app">
+
+
+    <!-- 为组件占位 -->
+    <router-view></router-view>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      router
+    })
+  </script>
+</body>
+</html>

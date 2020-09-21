@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="todo-add.js"></script>
+  <script src="todo-item.js"></script>
+  <script src="todo-list.js">
+    //components:{ todoItem }
+    //子组件必须放在父组件之前
+  </script>
+  <script src="todo.js">
+    //components:{ todoAdd, todoList }
+    //子组件必须放在父组件之前引入！
+  </script>
+  
+  
+</head>
+<body>
+  <div id="app">
+    <todo></todo>
+    <!--尝试在todo外使用todoList的子组件todoItem，结果报错！-->
+    <!-- <todo-item></todo-item> -->
+  </div>
+  <script>
+    new Vue({
+      el:"#app"
+    })
+  </script>
+</body>
+</html>
