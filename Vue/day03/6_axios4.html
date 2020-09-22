@@ -7,6 +7,12 @@
   <title>Document</title>
   <script src="js/vue.js"></script>
   <script src="js/axios.min.js"></script>
+  <script>
+  //window.axios
+    axios.defaults.baseURL="http://xzserver.applinzi.com"
+    //将axios对象添加到Vue家的原型对象中:
+    Vue.prototype.axios=axios;
+  </script>
   <style>
     [v-cloak]{display:none}
   </style>
@@ -25,10 +31,10 @@
       upwd:"",
     methods:{
       login(){
-        axios.post(
-          "http://xzserver.applinzi.com/users/signin",
-          `uname=${this.uname}$upwd=${this.upwd}`
+        this.axios.post(
+          "/users/signin",`uname=${this.uname}&upwd=${this.upwd}`
         ).then(result=>{
+          console.log(result.data)
           if(result.data.ok == 1){
             alert(`登录成功，欢迎${result.data.uname}`)
           }else{
