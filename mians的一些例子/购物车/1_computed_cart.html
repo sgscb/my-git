@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!-- 1.用v-for将购物车中的商品信息展现在页面上 -->
+  <!-- 3.添加删除功能 -->
+  <ul @click="del">
+    <h3>总计：¥{{total.toFixed(2)}}</h3>
+    <li v-for="(p,i) of cart" :key="i">
+      <!-- 4.添加选中/取消选中商品 -->
+      <input type="checkbox" v-model="p.is_checked">{{p.lid}} | {{p.lname}} | ¥{{parseFloat(p.price).toFixed(2)}} |
+      <button @click="change(-1,i)">-</button> {{parseInt(p.count)}} <button @click="change(+1,i)">+</button> |
+      小计：¥{{(p.price*p.count).toFixed(2)}} <button :data-i="i">×</button>
+    </li>
+    <!-- 2.用计算属性计算总价 -->
+    <h3>总计：¥{{total.toFixed(2)}}</h3>
+  </ul>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    cart:[
+      {lid:1,lname:"华力",price:4488,count:2,is_checked:false},
+      {lid:2,lname:"苹果",price:5888,count:6,is_checked:true},
+      {lid:3,lname:"小木",price:3588,count:3,is_checked:false}
+    ]
+  },
+  methods:{
+    change( n, i ){
+      this.cart[i].count+=n;
+      if(this.cart[i].count == 0){
+        this.cart.splice(i,1)
+      }
+    },
+    del(e){
+      console.log(e)
+      // 事件委托和change冲突，所以加一个innerHTML=="×"
+      if(e.target.nodeName == "BUTTON"&&e.target.innerHTML=="×"){
+        var i=e.target.dataset.i;
+        this.cart.splice(i,1);
+      }
+    }
+    // 放在methods中的函数的执行结果无法被vue缓存， 不能反复使用
+  },
+  computed:{
+    total(){
+      console.log(`调用了一次total()函数`);
+      var sum=0;
+      //sum=this.cart.reduce((box,p)=>box+(p.price*p.count),0);
+      for(var p of this.cart){
+        if(p.is_checked){
+          sum+=p.price*p.count
+        }
+      }
+      return sum
+    }
+  }
+})
+</script>
+</body>
+</html>

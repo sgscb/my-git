@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<ul id="index-product">
+<input id="fruitName" type="text"><br>
+<input id="fruitPrice" type="pswd"><br>
+<button id="postBtn">注册</button>
+</ul>
+<script>
+  $("#postBtn").click(function(){
+    console.log($("#fruitName").val())
+    console.log($("#fruitPrice").val())
+    $.ajax({
+      type:'post',
+      url:'http://localhost:3003/fruits',
+      data:{
+        uname:$("#fruitName").val(),
+        price:$("#fruitPrice").val()
+      },
+      success:function(data){
+        console.log("post success")
+      },
+      error:function(){
+        alert("post error")
+      }
+    })
+  })
+</script>
+  
+</body>
+</html>

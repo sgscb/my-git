@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<script>
+  //封装的按钮子组件
+  Vue.component("counter",{
+    template:`<span>
+      <button :data-i="i" data-n="-1">-</button> {{parseInt(p.count)}} <button :data-i="i" data-n="+1">+</button>
+    </span>`,
+    props:["p","i"]
+  })
+  
+</script>
+<body>
+<div id="app">
+  <!-- 1.用v-for将购物车中的商品信息展现在页面上 -->
+  <!-- 3.添加删除功能 -->
+  <ul @click="handler">
+    <h3>总计：¥{{total.toFixed(2)}}</h3>
+    <li v-for="(p,i) of cart" :key="i">
+      <!-- 4.添加选中/取消选中商品 -->
+      <input type="checkbox" v-model="p.is_checked">{{p.lid}} | {{p.lname}} | ¥{{parseFloat(p.price).toFixed(2)}} |
+        <counter :p="p" :i="i"></counter>|
+      小计：¥{{(p.price*p.count).toFixed(2)}} <button :data-i="i">×</button>
+    </li>
+    <!-- 2.用计算属性计算总价 -->
+    <h3>总计：¥{{total.toFixed(2)}}</h3>
+  </ul>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    cart:[
+      {lid:1,lname:"华力",price:4488,count:2,is_checked:false},
+      {lid:2,lname:"苹果",price:5888,count:6,is_checked:true},
+      {lid:3,lname:"小木",price:3588,count:3,is_checked:false}
+    ]
+  },
+  methods:{
+    //无论点击×，还是+ -号，都触发handler
+    handler(e){
+      //只有点击的是按钮是，才执行后续操作
+      if(e.target.nodeName=="BUTTON"){
+        //如果点的是内容是×，说明想要删除当前行
+        if(e.target.innerHTML=="×"){
+          console.log(e)
+          //从自定义扩展属性中绑定的下标值，作为删除的位置
+          this.cart.splice(e.target.dataset.i,1)
+        }else{//否则，如果不是加号，则执行加减操作
+          var i=e.target.dataset.i;
+          this.cart[i].count+=parseInt(e.target.dataset.n);//自定义扩展dataset.n缓存的值
+          if(this.cart[i].count==0){
+            this.cart.splice(i,1)
+          }
+        }
+      }
+    }
+    // 放在methods中的函数的执行结果无法被vue缓存， 不能反复使用
+  },
+  computed:{
+    total(){
+      console.log(`调用了一次total()函数`);
+      var sum=0;
+      //sum=this.cart.reduce((box,p)=>box+(p.price*p.count),0);
+      for(var p of this.cart){
+        if(p.is_checked){
+          sum+=p.price*p.count
+        }
+      }
+      return sum
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  /* 绝对定位方法：不确定当前div的宽度和高度 */
+  /* div{
+      width: 10px;height: 10px;
+      background:red;
+      position: absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%, -50%);
+  } */
+
+  /* 绝对定位方法：不确定当前div的宽度和高度 */
+  /* div{
+    width:600px;
+    height: 600px;
+    background:red;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-300px;
+    margin-top:-300px;
+  } */
+
+  div.child{
+    width: 600px;
+    height: 600px;
+    background: red;
+    position:absolute;
+    left:0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+  </style>
+</head>
+<body>
+  <div>
+    <div class="child"></div>
+  </div>
+</body>
+</html>

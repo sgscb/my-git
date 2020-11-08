@@ -1,0 +1,19 @@
+{
+  "fruits": [
+    {
+      "uname": "dfdsf",
+      "upwd": "123456",
+      "id": 1
+    },
+    {
+      "uname": "dfsadf",
+      "price": "1354",
+      "id": 2
+    },
+    {
+      "uname": "fefe65f4564",
+      "price": "",
+      "id": 3
+    }
+  ]
+}
