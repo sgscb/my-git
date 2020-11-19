@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第三题</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 800px;
+        height: 100%;
+        margin: auto;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        color: #56688a;
+        font-family: "Microsoft YaHei";
+        line-height: 28px;
+      }
+
+      .form-main {
+        height: 300px;
+        width: 600px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        margin: 30px auto auto auto;
+      }
+
+      .form-main .title {
+        text-align: center;
+        font-size: 20px;
+        line-height: 50px;
+      }
+      .field-line {
+        line-height: 60px;
+      }
+      #field_a,
+      #field_b {
+        width: 200px;
+        height: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <p>第三题：</p>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        在下面表单中，存在a、b两个字段，已知b字段跟a字段存在一个函数关系，即b=func(a)，a字段值经过函数func运算后，可得到b字段的值。
+      </p>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        假设此函数关系为b=a*2，此逻辑已由后台实现，参见接口
+        <a href="http://127.0.0.1:3000/calculate?a=1234" target="_blank"
+          >http://127.0.0.1:3000/calculate?a=1234</a
+        >
+      </p>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        现需要实现一个功能，用户在“字段a”对应的input框中输入一串数字时，如“1234”，表单中“字段b”应该及时呈现出“2468”，如下图
+      </p>
+      <p>
+        <img src="/static/img/test3.png" style="width: 273px" />
+      </p>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        请根据需求描述，结合已提供的rest接口，实现前端剩余逻辑，要求：
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp; 1、实现对字段a的事件绑定，监听值变化
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        2、调用rest接口http://127.0.0.1:3000/calculate?a=xxx，通过将a字段的值传到后台并获取b字段的返回值,设置到对应的界面上
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp; 3、对字段a的输入进行控制，不能输入非数字字符
+      </p>
+    </div>
+
+    <div class="form-main">
+      <div class="title">表单</div>
+      <div class="content">
+        <div class="field-line">字段a：<input id="field_a" type="number"/></div>
+        <div class="field-line">字段b：<input id="field_b" readonly /></div>
+      </div>
+    </div>
+
+    <script>
+      function Ajax(url) {
+        return new Promise((resolve, reject) => {
+          var xhr = new XMLHttpRequest();
+          xhr.open("get",url, true);
+          //监听
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var a1 = xhr.responseText;
+              var code = JSON.parse(a1);
+              resolve(code);
+            }
+          };
+          xhr.send();
+        });
+      }
+
+      //TODO 请在此处实现您的逻辑
+      var aVal = document.getElementById("field_a");
+      var bVal = document.getElementById("field_b")
+      aVal.oninput = function (e){
+        
+        var url="http://127.0.0.1:3000/calculate?a="+this.value
+        Ajax(url).then((resuelt)=>{
+          console.log(resuelt.data.b)
+          bVal.value=resuelt.data.b
+        }).catch(err=>{
+          console.log(err)
+        })        
+      }
+
+      // aVal.oninput = function (e) {
+      //   var a = this.value;
+      //   var xhr = new XMLHttpRequest();
+      //   xhr.open("get", " http://127.0.0.1:3000/calculate?a=" + a, true);
+      //   //监听
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState == 4 && xhr.status == 200) {
+      //       var a1 = xhr.responseText;
+      //       var code = JSON.parse(a1).data.b;
+
+      //       var bVal = document.getElementById("field_b");
+      //       bVal.value = code;
+      //     }
+      //   };
+      //   xhr.send();
+      // };
+      //   a框：
+    </script>
+  </body>
+</html>
