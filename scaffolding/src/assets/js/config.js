@@ -1,0 +1,1 @@
+export const baseURL="http://xzserver.applinzi.com";
