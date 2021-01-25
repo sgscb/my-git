@@ -45,25 +45,17 @@ myFavoriteNumber3 = 7;
 // myFavoriteNumber3 = true; // Type 'boolean' is not assignable to type 'string | number'.
 // console.log(myFavoriteNumber4.length); // 编译时报错 被推断成了 number
 
-// *接口 对象类型接口 赋值的时候，变量的形状必须和接口的形状保持一致
+// 对象类型接口 赋值的时候，变量的形状必须和接口的形状保持一致
 // interface Person {// 少了或者多了一些属性是不允许的
 //     name: string;
 //     age: number;
 // }
-//一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：
-interface Persons { //?????????????
-    readonly id: number; // 设置只能只读
+interface Person {// 属性可以不存在
     name: string;
-    age?: number;// 属性可以不存在
-    // [propName: string]: string //number不是同一个类型，会报错
-    [propName: string]: string | number | undefined;
+    age?: number;
 }
 
-let lilei: Persons = {
-    id: 12646,
-    name: 'lilei',
-    age: 25,
-    gender: 'male',
+let tom: Person = {
+    name: 'Tom',
+    age: 12345
 }
-// lilei.id = 9527  // Cannot assign to 'id' because it is a read-only property.
-console.log(lilei)

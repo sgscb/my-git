@@ -50,20 +50,15 @@ myFavoriteNumber3 = 7;
 //     name: string;
 //     age: number;
 // }
-//一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：
-interface Persons { //?????????????
-    readonly id: number; // 设置只能只读
+interface Person {
     name: string;
     age?: number;// 属性可以不存在
-    // [propName: string]: string //number不是同一个类型，会报错
-    [propName: string]: string | number | undefined;
+    readonly sex: string // 只读
 }
+let tom: Person = {
+    name: 'Tom',
+    age: 19,
+    sex: "男" // 只读
+}
+tom.sex = "女" // 
 
-let lilei: Persons = {
-    id: 12646,
-    name: 'lilei',
-    age: 25,
-    gender: 'male',
-}
-// lilei.id = 9527  // Cannot assign to 'id' because it is a read-only property.
-console.log(lilei)
