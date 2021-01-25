@@ -1,4 +1,3 @@
-"use strict";
 function sayHello(person) {
     if (typeof person === 'string') {
         return 'Hello, ' + person;
@@ -42,7 +41,6 @@ var lilei = {
     id: 12646,
     name: 'lilei',
     age: 25,
-    gender: 'male',
+    gender: 'male'
 };
-// lilei.id = 9527  // Cannot assign to 'id' because it is a read-only property.
-console.log(lilei);
+// console.log(lilei)
