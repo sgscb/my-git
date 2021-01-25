@@ -34,6 +34,19 @@ var myFavoriteNumber3;
 myFavoriteNumber3 = 'seven';
 console.log(myFavoriteNumber3.length); // 5 被推断成了string
 myFavoriteNumber3 = 7;
+// myFavoriteNumber3 = true; // Type 'boolean' is not assignable to type 'string | number'.
+// console.log(myFavoriteNumber4.length); // 编译时报错 被推断成了 number
+// **函数 约定输入 约定输出
+function add(x, y) {
+    return x + y;
+}
+// 函数本身的类型
+var add2 = add;
+// interface 描述函数类型
+var sum = function (x, y) {
+    return x + y;
+};
+var sum2 = sum;
 var lilei = {
     id: 12646,
     name: 'lilei',
@@ -42,3 +55,15 @@ var lilei = {
 };
 // lilei.id = 9527  // Cannot assign to 'id' because it is a read-only property.
 console.log(lilei);
+// as 关键字，告诉typescript 编译器，你没法判断我的代码，但是我本人很清楚，这里我就把它看作是一个 string，你可以给他用 string 的方法。
+function getLength(input) {
+    var str = input;
+    if (str.length) {
+        return str.length;
+    }
+    else {
+        var number = input;
+        return number.toString().length;
+    }
+}
+console.log(getLength("1236456"));

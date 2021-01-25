@@ -45,6 +45,21 @@ myFavoriteNumber3 = 7;
 // myFavoriteNumber3 = true; // Type 'boolean' is not assignable to type 'string | number'.
 // console.log(myFavoriteNumber4.length); // 编译时报错 被推断成了 number
 
+// **函数 约定输入 约定输出
+function add(x: number, y: number): number {
+    return x + y
+}
+// 函数本身的类型
+const add2: (x: number, y: number, z?: number) => number = add
+// interface 描述函数类型
+const sum = (x: number, y: number) => {
+    return x + y
+}
+interface ISum { //--------
+    (x: number, y: number): number
+}
+const sum2: ISum = sum
+
 // *接口 对象类型接口 赋值的时候，变量的形状必须和接口的形状保持一致
 // interface Person {// 少了或者多了一些属性是不允许的
 //     name: string;
@@ -67,3 +82,17 @@ let lilei: Persons = {
 }
 // lilei.id = 9527  // Cannot assign to 'id' because it is a read-only property.
 console.log(lilei)
+// as 关键字，告诉typescript 编译器，你没法判断我的代码，但是我本人很清楚，这里我就把它看作是一个 string，你可以给他用 string 的方法。
+function getLength(input: string | number): number {
+    const str = input as string
+    if (str.length) {
+        return str.length
+    } else {
+        const number = input as number
+        return number.toString().length
+    }
+}
+
+console.log(getLength("1236456"))
+
+
