@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>减少|降低(汇总) 原数组中每个元素值进行统计，最终得出一个统计结果</title>
 </head>
 <body>
+  <a href="https://www.jianshu.com/p/e375ba1cfc47">reduce更多的用法</a>
+  <div>map不会对空数组进行检测</div>
   <script>
     var str="helloworld";
     var arr=str.split("");//打撒分割 成数组
@@ -19,9 +21,11 @@
         // }else{
         //   box[elem]++;
         // }
+        console.log(`box-${box} elem-${elem} i-${i} arr-${arr}`)
+        console.log(box[elem])
         return box;
       },
-      {}//会先创建捐款箱(起始值)
+      []//会先创建捐款箱(起始值)[]|{}
     )
     console.log(result);
   </script>

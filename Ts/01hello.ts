@@ -1,3 +1,5 @@
+import { type } from "os";
+
 function sayHello(person: string) {
     if (typeof person === 'string') {
         return 'Hello, ' + person;
@@ -59,6 +61,7 @@ interface ISum { //--------
     (x: number, y: number): number
 }
 const sum2: ISum = sum
+console.log(sum2)
 
 // *接口 对象类型接口 赋值的时候，变量的形状必须和接口的形状保持一致
 // interface Person {// 少了或者多了一些属性是不允许的
@@ -86,13 +89,21 @@ console.log(lilei)
 function getLength(input: string | number): number {
     const str = input as string
     if (str.length) {
+        console.log(3)
         return str.length
     } else {
         const number = input as number
         return number.toString().length
     }
 }
-
-console.log(getLength("1236456"))
+function getLength2(input: string | number): number {
+    if (typeof input === 'string') {
+        console.log(3)
+        return input.length
+    } else {
+        return input.toString().length
+    }
+}
+console.log(getLength2(1233))
 
 

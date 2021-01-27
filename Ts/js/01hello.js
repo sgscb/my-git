@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function sayHello(person) {
     if (typeof person === 'string') {
         return 'Hello, ' + person;
@@ -47,6 +48,7 @@ var sum = function (x, y) {
     return x + y;
 };
 var sum2 = sum;
+console.log(sum2);
 var lilei = {
     id: 12646,
     name: 'lilei',
@@ -59,6 +61,7 @@ console.log(lilei);
 function getLength(input) {
     var str = input;
     if (str.length) {
+        console.log(3);
         return str.length;
     }
     else {
@@ -66,4 +69,13 @@ function getLength(input) {
         return number.toString().length;
     }
 }
-console.log(getLength("1236456"));
+function getLength2(input) {
+    if (typeof input === 'string') {
+        console.log(3);
+        return input.length;
+    }
+    else {
+        return input.toString().length;
+    }
+}
+console.log(getLength2(1233));

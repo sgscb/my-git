@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>映射|对照  保护原数组不变，返回遍历加工后的新数组</title>
 </head>
 <body>
   <ul id="ulNames">
@@ -11,15 +11,15 @@
   </ul>
   <script>
     var arr=["然然","东东","亮亮","小明"];
-    // var arr2=arr.map(
-    //   function(elem,i,arr){
-    //     console.log(`取出elem=${elem},在原数组arr=${arr}下标${i}位置,将<li>第${i+1}阶段老师${elem}</li>放入新数组`)
-    //     return `<li>第${i+1}阶段老师${elem}</li>`
-    //   }
-    // )
+    var arr2=arr.map(
+      function(elem,i,arr){
+        console.log(`取出elem=${elem},在原数组arr=${arr}下标${i}位置,将<li>第${i+1}阶段老师${elem}</li>放入新数组`)
+        return `<li>第${i+1}阶段老师${elem}</li>`
+      }
+    )
     //以上的简写
     var arr2=arr.map((elem,i,arr)=>`<li>第${i+1}阶段老师${elem}</li>`);
-console.log(arr2)
+console.log(arr)
 //按""拼接在一起
   var html=arr2.join("");
   console.log(html)
