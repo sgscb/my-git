@@ -1,5 +1,3 @@
-import { type } from "os";
-
 function sayHello(person: string) {
     if (typeof person === 'string') {
         return 'Hello, ' + person;

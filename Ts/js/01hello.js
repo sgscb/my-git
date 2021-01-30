@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function sayHello(person) {
     if (typeof person === 'string') {
         return 'Hello, ' + person;
