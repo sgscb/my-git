@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>过滤器 复制符合条件的元素放入新数组返回</title>
 </head>
+
 <body>
   <script>
-    var arr=[1,3,6,7,8]
-    var arr2=arr.filter(
-      function(elem,i,arr){
-        return elem%2==0
+    var arr = [1, 3, 6, 7, 8]
+    var arr2 = arr.filter(
+      function (elem, i, arr) {
+        return elem % 2 == 0
       }
     )
     console.log(arr)//原素组没有发生变化
     console.log(arr2)//添加的新数组
-    console.log(arr==arr2)//flase 说明地址不同
+    console.log(arr == arr2)//flase 说明地址不同
+    var tags = [
+      {
+        tagType: 'PRO_ACTIVITY_TAG',
+        tagId: '826648681181121418',
+        tagName: '热门商品',
+      },
+      {
+        tagType: 'PRO_PROMOTE_TAG',
+        tagId: '815529217010126305',
+        tagName: '正式促销',
+      },
+      {
+        tagType: 'PRO_SERVICE_TAG',
+        tagId: '826648681181121428',
+        tagName: null,
+      },
+      {
+        tagType: 'PRO_SERVICE_TAG',
+        tagId: '826648681181121427',
+        tagName: '免费核名',
+      },
+      {
+        tagType: 'PRO_SALES_TAG',
+        tagId: '815528942132186995',
+        tagName: '正式_人气',
+      },
+    ]
+    var tags2=tags.filter(elem=>{
+      console.log(elem.tagName||'')
+      var val=elem.tagType =='PRO_ACTIVITY_TAG'
+      return val
+    })
+    console.log(tags2)
   </script>
 </body>
+
 </html>
