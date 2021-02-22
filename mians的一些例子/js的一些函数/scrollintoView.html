@@ -10,7 +10,9 @@
       function goTo(n) {
         var el = document.getElementById('p' + n)
         if (el) {
-          el.scrollIntoView(false)
+        //   el.scrollIntoView()
+        //   el.scrollIntoView(false)
+        el.scrollIntoView({block: "end", behavior: "smooth"})
         }
       }
     </script>
