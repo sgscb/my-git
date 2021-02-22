@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <!-- 非常有用的scrollIntoView方法 http://mssn.midea.com/ask/?/article/230 -->
+    <button onclick="goTo(50)">go to 50</button>
+    <script>
+      for (var i = 0; i < 100; i++) {
+        document.writeln('<p id="p' + i + '">' + i + '</p>')
+      }
+
+      function goTo(n) {
+        var el = document.getElementById('p' + n)
+        if (el) {
+          el.scrollIntoView(false)
+        }
+      }
+    </script>
+  </body>
+</html>
