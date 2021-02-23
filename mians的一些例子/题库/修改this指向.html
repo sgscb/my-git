@@ -9,12 +9,16 @@
 
   <body>
     <script>
-      function bindThis(func, oTarget) {
+      // 声明
+      function callback(arg1, arg2) {}
+      function Func(callback) {
+        console.log(callback);
         return function () {
-          return func.apply(oTarget, arguments);
+          // 在该层封装函数中使用arguments对象取callback形参
         };
       }
-      bindThis()
+      // 调用
+      Func(callback)("形参1", "形参2");
     </script>
   </body>
 </html>
