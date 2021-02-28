@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
+  <!-- https://www.cnblogs.com/echolun/p/12144344.html -->
   <script>
-    function count(base,bonus){
-      console.log(`${this.ename}的总工资是${base+bonus}`)
+    function count(base, bonus) {
+      console.log(arguments)
+      console.log(base, bonus)
+      console.log(`${this.ename}的总工资是${base + bonus}`)
     }
-    var lilei={ename:"Li Lei"};
-    var hmm={ename:"Han Meimei"};
-//立刻调用执行一次函数 实参列表
-     count.call(lilei,1000,3500)
-     count.call(hmm,8000,6646)
+    var lilei = { ename: "Li Lei" };
+    var hmm = { ename: "Han Meimei" };
+    // 立刻调用执行一次函数 实参列表
+    count(lilei, 1000, 3500)
+    count.call(hmm, 8000, 6646)
+
+    // 原理
+    var name = '时间跳跃';
+    var obj = {
+      name: '听风是风'
+    };
+
+    function fn(a, b, c) {
+      console.log(a + b + c + this.name);
+    };
+    //模拟call方法
+    Function.prototype.call_ = function (obj) {
+      //判断是否为null或者undefined,同时考虑传递参数不是对象情况
+      obj = obj ? Object(obj) : window;
+      var args = [];
+      // 注意i从1开始
+      for (var i = 1, len = arguments.length; i < len; i++) {
+        args.push("arguments[" + i + "]");
+      };
+      obj.fn = this; // 此时this就是函数fn
+      eval("obj.fn(" + args + ")"); // 执行fn
+      //  ↓↓
+      // obj.fn("我的", "名字", "是")
+      delete obj.fn; //删除fn
+    };
+    fn.call_(obj, "我的", "名字", "是"); // 我的名字是听风是风
+    fn.call_(null, "我的", "名字", "是"); // 我的名字是时间跳跃
+    fn.call_(undefined, "我的", "名字", "是"); // 我的名字是时间跳跃
   </script>
 </body>
+
 </html>

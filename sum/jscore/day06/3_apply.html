@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
+  <!-- https://www.cnblogs.com/echolun/p/12144344.html -->
   <script>
-    function count(base,bonus,bouns2){
-      console.log(`${this.ename}的总工资是${base+bonus+bouns2}`)
+    function count(base, bonus, bouns2) {
+      console.log(`${this.ename}的总工资是${base + bonus + bouns2}`)
     }
-    var lilei={ename:"Li Lei"};
-    var hmm={ename:"Han Meimei"};
-     arr=[1000,1000,1000]
-  //多个形参变量，但多个实参是在数组给的，出现了不一致
-     count.apply(lilei,arr)
-     count.apply(hmm,arr)
+    var lilei = { ename: "Li Lei" };
+    var hmm = { ename: "Han Meimei" };
+    arr = [1000, 1000, 1000]
+    //多个形参变量，但多个实参是在数组给的，出现了不一致
+    count.apply(lilei, arr)
+    count.apply(hmm, arr)
+
+    // 原理
+    var name = '时间跳跃';
+    var obj = {
+      name: '听风是风'
+    };
+
+    function fn(a, b, c) {
+      console.log(a + b + c + this.name);
+    };
+    //模拟call方法
+    Function.prototype.apply_ = function (obj, arr) {
+      obj = obj ? Object(obj) : window;
+      obj.fn = this;
+      if (!arr) {
+        obj.fn();
+      } else {
+        var args = [];
+        // 注意这里的i从0开始
+        for (var i = 0, len = arr.length; i < len; i++) {
+          args.push("arr[" + i + "]");
+        };
+        eval("obj.fn(" + args + ")"); // 执行fn
+      };
+      delete obj.fn; //删除fn
+    };
+    fn.apply_(obj, ["我的", "名字", "是"]); // 我的名字是听风是风
+    fn.apply_(null, ["我的", "名字", "是"]); // 我的名字是时间跳跃
+    fn.apply_(undefined, ["我的", "名字", "是"]); // 我的名字是时间跳跃
   </script>
 </body>
+
 </html>
