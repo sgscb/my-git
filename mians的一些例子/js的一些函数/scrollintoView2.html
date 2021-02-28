@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <style>
+      .options {
+        overflow: auto;
+        width: 100px;
+        height: 250px;
+        border: solid 1px #f2f2f2;
+      }
+
+      .option {
+        height: 34px;
+        margin: 0;
+        padding: 8px;
+      }
+      .option.selected {
+        color: #fff;
+        background: #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="options" id="options">
+    </div>
+    <script>
+      for (var i = 0; i < 100; i++) {
+        var p = document.createElement('p')
+
+        p.classList.add('option')
+        p.innerText = i
+        p.setAttribute('id', 'p' + i)
+        document.getElementById('options').appendChild(p)
+      }
+
+      document.getElementById('p0').classList.add('selected')
+
+      var selected = 0
+
+      document.addEventListener('keydown', function (evt) {
+        evt.preventDefault()
+        document.getElementById('p' + selected).classList.remove('selected')
+
+        if (evt.keyCode === 40) {
+          selected++
+        }
+        if (evt.keyCode === 38) {
+          selected--
+        }
+        if (selected < 0) {
+          selected = 99
+        }
+        if (selected > 99) {
+          selected = 0
+        }
+
+        document.getElementById('p' + selected).classList.add('selected')
+        document.getElementById('p' + selected).scrollIntoView(false)
+      })
+    </script>
+  </body>
+</html>
